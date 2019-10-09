@@ -1,0 +1,30 @@
+<div class="row login_box">
+  <div class="col-md-12 col-xs-12" align="center">
+    <!--<div class="line">
+      <h3>12 : 30 AM</h3>
+    </div>-->
+    <div class="outter"><img src="./images/mundo.png" class="image-circle" />
+    </div>
+    <!--<h1>Hi Guest</h1>
+    <span>INDIAN</span>-->
+  </div>
+  <div class="col-md-6 col-xs-6 follow line" align="center">
+    <h3>{{record.fecha}}<br/> <span>Fecha</span></h3>
+  </div>
+  <div class="col-md-6 col-xs-6 follow line" align="center">
+    <h3>{{record.hora}}<br/> <span>Hora</span></h3>
+  </div>
+  <div class="col-md-12 col-xs-12 login_control">
+    <div class="control">
+      <div class="label">Usuario</div>
+      <input type="text" ng-model="user.username" class="form-control" placeholder="Usuario"/>
+    </div>
+    <div class="control">
+      <div class="label">Password</div>
+      <input type="password" ng-model="user.password" class="form-control" placeholder="Password"/>
+    </div>
+    <div align="center">
+      <button class="btn btn-orange" ng-click="login(user)">LOGIN</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h3 class="modal-title">Estado de Cuenta</h3>
+</div>
+<div class="modal-body">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form>
+        <div class="row">
+          <div class="col-sm-12">
+            <label>Alumno:</label>
+            <fancy-select ng-change="record.Codigo = record.alumnoscmb.Codigo" ng-model="record.alumnoscmb" ng-options="(alumno.Nombres+' '+alumno.Apellidos+' - '+alumno.Codigo) for alumno in alumnos track by alumno.Codigo">
+            </fancy-select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <div class="col-sm-12 text-left">
+    <button class="btn-sm btn-info" type="button" ng-click="open(record, 'lg', 'report')">Generar</button>
+    <button class="btn-sm btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+  </div>
+</div>

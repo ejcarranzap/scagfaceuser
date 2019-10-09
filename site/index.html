@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./fonts/linecons/css/linecons.css">
+	<link rel="stylesheet" href="./fonts/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../bower_components/angular-ui-grid/ui-grid.min.css">
+	<link rel="stylesheet" href="../bower_components/angular-ui-switch/angular-ui-switch.min.css">
+	<link rel="stylesheet" href="../bower_components/jquery-selectboxit/jquery.selectboxit.css">
+	<link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+	<link rel="stylesheet" href="../bower_components/datetimepicker/jquery.datetimepicker.css">
+	<link rel="stylesheet" href="../bower_components/angular-tree-control/css/tree-control.css">
+	<link rel="stylesheet" href="../bower_components/angular-tree-control/css/tree-control-attribute.css">
+	<link rel="stylesheet" href="../bower_components/handsontable/dist/handsontable.full.min.css">
+	<link rel="stylesheet" href="../bower_components/handsontable-ruleJS/src/handsontable.formula.css">
+	<link rel="stylesheet" href="../bower_components/fancybox/source/jquery.fancybox.css">
+	<link rel="stylesheet" href="./css/loader.css">
+
+	<link rel="stylesheet" href="./css/custom.css">
+	<link rel="stylesheet" href="./css/login.css">
+	<link rel="stylesheet" href="./css/loginform.css">
+	<link rel="stylesheet" href="./css/cards.css">
+	<link rel="stylesheet" href="./css/navbar.css">
+	<title>Servicios Montessori::.</title>
+</head>
+
+<body ng-app="myApp" ng-controller="mainController">
+	<div id="main-wrapper">
+		<main class="main" role="main" id="main-content">
+			<div id="main-top-bar">
+				<a class="site-logo" ng-click="callService()"><img src="./images/logomontessori.png"></a>
+				<div user-menu class="user-menu">
+					<div class="user-menu-item">
+						<div class="user-image-wrapper">
+							<span class="user-image"><img src="./images/user.png"></span>
+						</div>
+						<div class="user-name-wrapper">
+							Menu <i class="fa fa-caret-down"></i>
+						</div>
+					</div>
+					<div class="user-dropdown">
+						<a href="#/login" class="dropdown-item" ng-class="{'hidden': autenticated}"><span class="mr-3"><i class="fa fa-user"></i></span> Login</a>
+						<a href="#/home" class="dropdown-item" ng-class="{'hidden': !autenticated}"><span class="mr-3"><i class="fa fa-home"></i></span> Home</a>
+						<!--<a href="#" class="dropdown-item" ng-class="{'hidden': !autenticated}"><span class="mr-3"><i class="fa fa-user"></i></span> Profile</a>
+						<a href="#" class="dropdown-item" ng-class="{'hidden': !autenticated}"><span class="mr-3"><i class="fa fa-building"></i></span> Company</a>
+						<a href="#" class="dropdown-item" ng-class="{'hidden': !autenticated}"><span class="mr-3"><i class="fa fa-credit-card"></i></span> Billing</a>
+						<a href="#" class="dropdown-item" ng-class="{'hidden': !autenticated}"><span class="mr-3"><i class="fa fa-exclamation-circle"></i></span> Report a Problem</a>-->
+						<a ng-click="logout()" class="dropdown-item" ng-class="{'hidden': !autenticated}"><span class="mr-3"><i class="fa fa-power-off"></i></span> Logout</a>
+					</div>
+					<!--<div class="shape"></div>-->
+				</div>
+			</div>
+			<div ng-class="{'col-xs-12': !autenticated, 'col-xs-12': autenticated}">
+				<div class="container">
+					<button class="btn btn-danger hidden" id="my-alert-window" ng-bootbox-title="Error" ng-bootbox-custom-dialog ng-bootbox-custom-dialog-template="app/view/error.tpl.html">
+					</button>
+					<ng-view></ng-view>
+				</div>
+			</div>
+		</main>
+	</div>
+
+
+	<div id="loader-wrapper" ng-class="{'hidden': !divloading}">
+		<div id="loader"></div>
+	</div>
+
+	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe5Nu5tcQ8r5Nw2h3fsoHyjAu7snTdIfE&libraries=drawing"></script>-->
+	<script src="./js/cybs_devicefingerprint.js"></script>
+
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../bower_components/jquery-selectboxit/jquery-ui-1.10.3.min.js"></script>
+	<script src="../bower_components/jquery-selectboxit/jquery.selectboxit.js"></script>
+	<script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../bower_components/accounting/accounting.min.js"></script>
+
+	<!--handsontable-->
+	<script src="../bower_components/handsontable/dist/handsontable.full.min.js"></script>
+	<script src="../bower_components/lodash/dist/lodash.min.js"></script>
+	<script src="../bower_components/underscore.string/dist/underscore.string.min.js"></script>
+	<script src="../bower_components/numeral/min/numeral.min.js"></script>
+	<script src="../bower_components/numericjs/src/numeric.js"></script>
+	<script src="../bower_components/js-md5/src/md5.js"></script>
+	<script src="../bower_components/jstat/dist/jstat.min.js"></script>
+	<script src="../bower_components/formulajs/formula.js"></script>
+	<script src="../bower_components/moment/moment.js"></script>
+	<script src="../bower_components/ruleJS/dist/js/parser.js"></script>
+	<script src="../bower_components/ruleJS/dist/js/ruleJS.js"></script>
+	<script src="../bower_components/handsontable-ruleJS/src/handsontable.formula.js"></script>
+	<script src="../bower_components/fancybox/source/jquery.fancybox.js"></script>
+	<!--<script src="../bower_components/ngHandsontable/dist/ngHandsontable.min.js"></script>-->
+
+	<script src="../bower_components/angular/angular.min.js"></script>
+	<script src="../bower_components/angular-route/angular-route.min.js"></script>
+	<script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+	<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script src="../bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.min.js"></script>
+	<script src="../bower_components/datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
+	<!--<script src="./js/datetimepicker-es.js"></script>-->
+
+	<script src="../bower_components/angular-ui-grid/ui-grid.min.js"></script>
+	<script src="../bower_components/angular-ui-switch/angular-ui-switch.min.js"></script>
+	<script src="../bower_components/ng-file-upload/ng-file-upload-all.min.js"></script>
+	<script src="../bower_components/angular-tree-control/angular-tree-control.js"></script>
+	<script src="../bower_components/ng-contextmenu/dist/ng-contextmenu.min.js"></script>
+	<script src="../bower_components/bootbox/bootbox.js"></script>
+	<script src="../bower_components/ngBootbox/dist/ngBootbox.min.js"></script>
+	<script src="../bower_components/ng-group/src/ngGroup.js"></script>
+	<!--My Search Field Modal Controller Require-->
+	<script src="../bower_components/dirPagination/dirPagination.js"></script>
+	<script src="../bower_components/angular-ui-mask/dist/mask.min.js"></script>
+	<script src="../bower_components/ng-map/ng-map.js"></script>
+
+
+	<script src="./app/app.js"></script>
+	<script src="./app/run.js"></script>
+	<script src="./app/service/boService.js"></script>
+	<script src="./app/directive/directive.js"></script>
+	<!--My Search Field Modal Controller-->
+	<script src="./app/view/my-search-field/controller/mySearchFieldModalController.js"></script>
+
+	<script src="./app/controller/mainController.js"></script>
+	<script src="./app/controller/defaultController.js"></script>
+	<script src="./app/controller/homeController.js"></script>
+	<script src="./app/controller/aboutController.js"></script>
+	<script src="./app/controller/contactController.js"></script>
+	<script src="./app/controller/loginController.js"></script>
+
+	<script src="./app/controller/main/scagfaceconfiguracionrubrocuentaajenaCtrl.js"></script>
+	<script src="./app/controller/main/facturaCtrl.js"></script>
+	<script src="./app/controller/main/facturapCtrl.js"></script>
+	<script src="./app/controller/main/pagoCtrl.js"></script>
+	<script src="./app/controller/main/estadodecuentaCtrl.js"></script>
+	<script src="./app/controller/main/estadodecuentalibrosCtrl.js"></script>
+	<script src="./app/controller/main/estadodecuentaboletaCtrl.js"></script>
+	<script src="./app/controller/main/estadodecuentalibrosboletaCtrl.js"></script>
+	<script src="./app/controller/main/rptGeneralCtrl.js"></script>
+</body>
+
+</html>

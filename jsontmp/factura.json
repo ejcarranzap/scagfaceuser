@@ -1,0 +1,39 @@
+[
+	{
+		Codigo: 1460678,
+		Carnet: 99075,
+		Nombre: 'Javier                        , Valdez Mora                   ',
+		Grado: 'GR11                     ',
+		Rubro: 'Mora sobre saldos Oct 2009',
+		Precio: 806.0767,
+		Saldo: 806.0767,
+		Mes: 'Oct 2009'
+	}, {
+		Codigo: 1464211,
+		Carnet: 99075,
+		Nombre: 'Javier                        , Valdez Mora                   ',
+		Grado: 'GR11                     ',
+		Rubro: 'Seguro MÃ©dico ',
+		Precio: 135,
+		Saldo: 135,
+		Mes: 'Ene 2010'
+	}, {
+		Codigo: 1465645,
+		Carnet: 99075,
+		Nombre: 'Javier                        , Valdez Mora                   ',
+		Grado: 'GR11                     ',
+		Rubro: 'Alerta MÃ©dica ',
+		Precio: 105,
+		Saldo: 105,
+		Mes: 'Ene 2010'
+	}, {
+		Codigo: 1467216,
+		Carnet: 99075,
+		Nombre: 'Javier                        , Valdez Mora                   ',
+		Grado: 'GR11                     ',
+		Rubro: 'Operacion escuela secundaria ',
+		Precio: 3,
+		Saldo: 3,
+		Mes: 'Ene 2010'
+	}
+]
