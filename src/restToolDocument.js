@@ -9,7 +9,7 @@ module.exports.restToolDocument = {
                 try {
 
                     var reg = JSON.parse(request.payload);
-                    console.log(reg);
+                    /*console.log(reg);*/
 
                     var Client = require('node-rest-client').Client;
 
@@ -48,12 +48,12 @@ module.exports.restToolDocument = {
                         }
                     };
 
-                    console.log('args', args);
+                    /*console.log('args', args);*/
 
                     var req = clientFirma.post("https://dev.api.soluciones-mega.com/api/solicitaFirma", args, function (data, response) {
                         var json = JSON.parse(JSON.stringify(data));
                         var error = json.FirmaDocumentoResponse.listado_errores.error;
-                        console.log('json', json);
+                        /*console.log('json', json);*/
                         if (error == undefined) {
                             console.log('Entro 2');
                             var client = new Client();
@@ -61,6 +61,8 @@ module.exports.restToolDocument = {
                             requestXml = requestXml + '<RegistraDocumentoXMLRequest id="' + guid + '">';
                             requestXml = requestXml + '<xml_dte><![CDATA[' + json.FirmaDocumentoResponse.xml_dte + ']]></xml_dte>';
                             requestXml = requestXml + '</RegistraDocumentoXMLRequest >';
+
+                            console.log('Entro 2.1');
 
                             var args2 = {
                                 data: requestXml,
@@ -70,12 +72,17 @@ module.exports.restToolDocument = {
                                 }
                             };
 
-                            var req0 = client.post("https://dev.api.ifacere-fel.com/fel-dte-services/api/registrarDocumentoXML", args2, function (data2, response2) {
+
+                            console.log('Entro 2.2');
+                            /*var req0 = client.post("https://dev.api.ifacere-fel.com/fel-dte-services/api/registrarDocumentoXML", args2, function (data2, response2) {*/
+                            var req0 = client.post("https://dev2.api.ifacere-fel.com/api/registrarDocumentoXML", args2, function (data2, response2) {
                                 var json2 = JSON.parse(JSON.stringify(data2));
-                                console.log('json2', json2);
-                                if(!json2.RegistraDocumentoXMLResponse.listado_errores) json2.RegistraDocumentoXMLResponse.listado_errores = {}; 
+
+                                console.log('Entro 2.3', json2);
+
+                                if(!json2.RegistraDocumentoXMLResponse.listado_errores) json2.RegistraDocumentoXMLResponse.listado_errores = {};
                                 var error2 = json2.RegistraDocumentoXMLResponse.listado_errores.error;
-                                console.log('Error2 A: ', error2);
+                                console.log('Error2 A scagfaceuser');
                                 if (error2 == undefined) {
                                     
                                     /*reply({
@@ -147,7 +154,7 @@ module.exports.restToolDocument = {
                     });
 
                 } catch (e) {
-                    console.log(e);
+                    console.log(e.stack);
                     /*reply({
                         success: false,
                         msg: e.message,

@@ -46,6 +46,7 @@ module.exports.restToolDocumentCancelation = {
                         var json = JSON.parse(JSON.stringify(data));
                         var error = json.FirmaDocumentoResponse.listado_errores.error;
                         console.log('json', json);
+                        
                         if (error == undefined) {
                             console.log('Entro 2');
                             var client = new Client();
@@ -63,11 +64,14 @@ module.exports.restToolDocumentCancelation = {
                             };
 
                             client.post("https://dev.api.ifacere-fel.com/fel-dte-services/api/anularDocumentoXML", args2, function (data2, response2) {
+                            /*client.post("https://dev2.api.ifacere-fel.com/api/anularDocumentoXML", args2, function (data2, response2) {*/
                                 var json2 = JSON.parse(JSON.stringify(data2));
                                 console.log('json2', json2);
                                 if(!json2.AnulaDocumentoXMLResponse.listado_errores) json2.AnulaDocumentoXMLResponse.listado_errores = {}; 
+
                                 var error2 = json2.AnulaDocumentoXMLResponse.listado_errores.error;
-                                console.log('Error2 A: ', error2);
+                                console.log('Error2 A: ', error2);                                
+
                                 if (error2 == undefined) {
                                     
                                     /*reply({
@@ -76,9 +80,11 @@ module.exports.restToolDocumentCancelation = {
                                         data: json2,
                                         total: 0
                                     });*/
-                                    reply(data2.AnulaDocumentoXMLResponse.xml_dte);
+                                    console.log('det entro...');
+                                    reply(json2.AnulaDocumentoXMLResponse.xml_dte);
                                 } else {
                                     
+                                    console.log('error det entro...');
                                     /*reply({
                                         success: false,
                                         code: json2.RegistraDocumentoXMLResponse.listado_errores.error.cod_error,
