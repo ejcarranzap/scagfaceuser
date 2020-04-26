@@ -7,7 +7,7 @@ module.exports = {
         driverclass: 'net.sourceforge.jtds.jdbc.Driver',
         drivertype: 'jtds:sqlserver',
         host: '192.168.8.130;databaseName=SCAGFACE',
-		port: 1433,
+		port: 4445,
 		dbname: '',
 		user: 'sa',
 		pass: 'sopmac08$$',
@@ -22,7 +22,8 @@ module.exports = {
         user: 'sa',
         password: 'sopmac08$$',
         server: '192.168.8.130',
-        database: 'SCAGFACE',
+        port: 4445,
+        database: 'SCAGFACE',        
         connectionTimeout: 600000,
         requestTimeout: 600000,
         pool: {
@@ -33,10 +34,10 @@ module.exports = {
     },
     JASPER_CN_CONFIG: {
         host: '192.168.8.130',
-        port: 1433,
+        port: 4445,
         dbname: 'SCAGFACE',
         user: 'jaspereport',
-        pass: 'sopmac08$$',
+        pass: 'sca2017$$',
         driver: 'mssql'
     },
     VISA_CONFIG: {
